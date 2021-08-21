@@ -156,9 +156,6 @@ const app = {
         volumeInput.style.display = 'none';
       }
     }
-    // window.onclick = function() {
-    //   volumeInput.style.display = 'none';
-    // }
     // set volume for audio
     audio.onvolumechange = function() {
       if(audio.volume) {
