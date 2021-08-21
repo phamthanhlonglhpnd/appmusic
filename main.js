@@ -167,7 +167,6 @@ const app = {
     volumeInput.onchange = function(e) {
       const volumnCurrent =  e.target.value / 100;  
       audio.volume = volumnCurrent;
-      console.log(volumnCurrent)
       _this.setConfig('currentVolume', volumnCurrent);
     }
     // change mode (dark mode or light mode)
@@ -265,7 +264,6 @@ const app = {
     }
     //play song when click
     playlist.onclick = function(e) {
-      console.log(e.target);
       const songNode = e.target.closest('.song:not(.active)');
       //const songOption = e.target.closest('.option');
       //if(songNode || songOption) {
@@ -332,9 +330,10 @@ const app = {
   },
 
   loadCurrentSong: function() {
-    heading.innerHTML = this.currentSong.name;
-    cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
-    audio.src = this.currentSong.path;
+    const _this = this;
+    heading.innerHTML = _this.currentSong.name;
+    cdThumb.style.backgroundImage = `url('${_this.currentSong.image}')`;
+    audio.src = _this.currentSong.path;
   },
 
   nextSong: function() {
