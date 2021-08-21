@@ -167,7 +167,8 @@ const app = {
     volumeInput.onchange = function(e) {
       const volumnCurrent =  e.target.value / 100;  
       audio.volume = volumnCurrent;
-      _this.setConfig('currentVolume', audio.volume);
+      console.log(volumnCurrent)
+      _this.setConfig('currentVolume', volumnCurrent);
     }
     // change mode (dark mode or light mode)
     mode.onclick = function() {
@@ -283,8 +284,8 @@ const app = {
 
     window.onload = function() {
       _this.render();
-      _this.loadCurrentSong();
-      _this.loadConfig();
+      // _this.loadCurrentSong();
+      // _this.loadConfig();
     }
 
     window.onkeydown = function(e) {
