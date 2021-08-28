@@ -214,16 +214,15 @@ const app = {
     }
     //seeking
     audio.ontimeupdate = function() {
-
       if(audio.duration) {
         const progressPercent = Math.floor(audio.currentTime / audio.duration * 100);
         progress.value = progressPercent;
+        _this.setConfig('currentTime', progressPercent);
       }
     }
     progress.oninput = function() {
       const seekTime =  audio.duration / 100 * progress.value;
       audio.currentTime = seekTime;
-      _this.setConfig('currentTime', audio.currentTime);
     }
 
     //next song
@@ -314,7 +313,8 @@ const app = {
     this.currentIndex = this.config.currentIndex;
     this.isDarkMode = this.config.isDarkMode;
     volumeInput.value = this.config.currentVolumeInput;
-    audio.currentTime =  this.config.currentTime;
+    //audio.currentTime =  this.config.currentTime;
+    progress.value = this.config.currentTime;
     audio.volume = this.config.currentVolume;
     this.isRandom = this.config.isRandom;
     this.isRepeat = this.config.isRepeat;
